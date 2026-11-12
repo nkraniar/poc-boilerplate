@@ -1,0 +1,17 @@
+{
+  "name": "architecture-poc",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "dev": "pnpm db:migrate && pnpm --parallel --filter @poc/web --filter @poc/api dev",
+    "build": "pnpm typecheck && pnpm --filter @poc/web build",
+    "typecheck": "pnpm -r typecheck",
+    "db:generate": "pnpm --filter @poc/api db:generate",
+    "db:migrate": "pnpm --filter @poc/api db:migrate",
+    "db:seed": "pnpm --filter @poc/api db:seed"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
